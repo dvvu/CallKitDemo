@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jaE-E7-1uU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CallKit Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,305 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ZvS-yF-iR1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-2p-PaC">
+                                <rect key="frame" x="28.5" y="317" width="131" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="   Incoming call   ">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="QbU-AA-gtB" kind="show" id="aLH-39-X41"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwL-9Q-vSd">
+                                <rect key="frame" x="216" y="317" width="131" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="   Outgoing call   ">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="kdo-fW-EDS" kind="show" id="N9I-q1-n7h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZvS-yF-iR1" secondAttribute="trailing" id="1RX-X9-AQA"/>
+                            <constraint firstItem="LwL-9Q-vSd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Cih-5g-PU5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZvS-yF-iR1" secondAttribute="bottom" id="XJV-NN-ps4"/>
+                            <constraint firstItem="ZvS-yF-iR1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="anc-4S-OjG"/>
+                            <constraint firstItem="7DT-2p-PaC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.5" id="hKl-ir-ZD9"/>
+                            <constraint firstItem="7DT-2p-PaC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lzr-94-hzy"/>
+                            <constraint firstItem="LwL-9Q-vSd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="oNi-vo-YO9"/>
+                            <constraint firstItem="ZvS-yF-iR1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="utA-kP-ZLI"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="CallKit Demo" id="CW4-Ca-uwV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1572" y="91.304347826086968"/>
+        </scene>
+        <!--Incoming Call View Controller-->
+        <scene sceneID="9Ok-mQ-hqn">
+            <objects>
+                <viewController id="QbU-AA-gtB" customClass="IncomingCallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QA3-E8-HWz"/>
+                        <viewControllerLayoutGuide type="bottom" id="55p-qg-Jf9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xd1-p3-Eih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kH-sN-SWb">
+                                <rect key="frame" x="26" y="128" width="323" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wh7-bB-OPm"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <connections>
+                                    <action selector="phoneNumberValueChanged:" destination="QbU-AA-gtB" eventType="editingChanged" id="fiL-M9-hZc"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bln-3Q-63A">
+                                <rect key="frame" x="123.5" y="188" width="127" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="   Simulate call   ">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="knk-fX-SbZ" kind="presentation" identifier="ShowCall" id="O4L-o0-Q1q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bln-3Q-63A" firstAttribute="top" secondItem="5kH-sN-SWb" secondAttribute="bottom" constant="30" id="3f8-hi-ktn"/>
+                            <constraint firstItem="bln-3Q-63A" firstAttribute="centerX" secondItem="Xd1-p3-Eih" secondAttribute="centerX" id="IXQ-4d-bdb"/>
+                            <constraint firstItem="5kH-sN-SWb" firstAttribute="top" secondItem="QA3-E8-HWz" secondAttribute="bottom" constant="64" id="LW5-SB-qm7"/>
+                            <constraint firstItem="5kH-sN-SWb" firstAttribute="leading" secondItem="Xd1-p3-Eih" secondAttribute="leadingMargin" constant="10" id="Y4T-8X-JEi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5kH-sN-SWb" secondAttribute="trailing" constant="10" id="bxx-gj-9LW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="phoneNumberTextField" destination="5kH-sN-SWb" id="dOH-gK-HIx"/>
+                        <outlet property="simulateCallButton" destination="bln-3Q-63A" id="wCX-93-EzY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drc-Pa-PJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279.1999999999998" y="-327.88605697151428"/>
+        </scene>
+        <!--Outgoing Call View Controller-->
+        <scene sceneID="uar-Fd-cnl">
+            <objects>
+                <viewController id="kdo-fW-EDS" customClass="OutgoingCallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v04-hi-dKV"/>
+                        <viewControllerLayoutGuide type="bottom" id="NWF-Bf-wCi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IHA-Bk-1Pt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fb-H5-qGZ">
+                                <rect key="frame" x="26" y="84" width="323" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Od-d3-agl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <connections>
+                                    <action selector="phoneNumberValueChanged:" destination="kdo-fW-EDS" eventType="editingChanged" id="lUz-By-Emb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwC-xj-zoa">
+                                <rect key="frame" x="159.5" y="144" width="56" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="   Dial   ">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="knk-fX-SbZ" kind="presentation" identifier="ShowDial" id="7RE-Hq-fux"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Fb-H5-qGZ" firstAttribute="leading" secondItem="IHA-Bk-1Pt" secondAttribute="leadingMargin" constant="10" id="8ZK-84-PK1"/>
+                            <constraint firstItem="gwC-xj-zoa" firstAttribute="centerX" secondItem="IHA-Bk-1Pt" secondAttribute="centerX" id="AHy-Ve-Wcm"/>
+                            <constraint firstItem="9Fb-H5-qGZ" firstAttribute="centerX" secondItem="IHA-Bk-1Pt" secondAttribute="centerX" id="ED0-dk-VDZ"/>
+                            <constraint firstItem="gwC-xj-zoa" firstAttribute="top" secondItem="9Fb-H5-qGZ" secondAttribute="bottom" constant="30" id="MLj-xD-Kiu"/>
+                            <constraint firstItem="9Fb-H5-qGZ" firstAttribute="top" secondItem="v04-hi-dKV" secondAttribute="bottom" constant="64" id="SYG-Eq-kCx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Fb-H5-qGZ" secondAttribute="trailing" constant="10" id="YG3-BA-mtb"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="dialButton" destination="gwC-xj-zoa" id="CW2-Sa-Pjw"/>
+                        <outlet property="phoneNumberTextField" destination="9Fb-H5-qGZ" id="zF1-oW-ef4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42o-Dn-Yws" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="448.42578710644682"/>
+        </scene>
+        <!--Call View Controller-->
+        <scene sceneID="wPR-1h-0jb">
+            <objects>
+                <viewController storyboardIdentifier="CallViewController" id="knk-fX-SbZ" customClass="CallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="16j-5f-TWy"/>
+                        <viewControllerLayoutGuide type="bottom" id="aXY-ld-aEU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GPL-10-Gg0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcM-JI-7lT">
+                                <rect key="frame" x="151" y="110" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSD-iB-NgZ">
+                                <rect key="frame" x="134" y="187" width="106" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMJ-XV-8IT">
+                                <rect key="frame" x="76" y="320" width="77" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="   HOLD   "/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="holdButtonTapped:" destination="knk-fX-SbZ" eventType="touchUpInside" id="icM-5K-vdo"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-EN-fbm">
+                                <rect key="frame" x="235" y="320" width="64" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="   END   "/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="endButtonTapped:" destination="knk-fX-SbZ" eventType="touchUpInside" id="Idg-dP-AZY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZO-6k-vXH">
+                                <rect key="frame" x="158.5" y="80" width="58.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RZO-6k-vXH" firstAttribute="top" secondItem="16j-5f-TWy" secondAttribute="bottom" constant="60" id="5EC-DS-plC"/>
+                            <constraint firstItem="WcM-JI-7lT" firstAttribute="top" secondItem="16j-5f-TWy" secondAttribute="bottom" constant="90" id="Fr9-ou-7lH"/>
+                            <constraint firstItem="WcM-JI-7lT" firstAttribute="centerX" secondItem="GPL-10-Gg0" secondAttribute="centerX" id="QtF-pm-Ajl"/>
+                            <constraint firstItem="RZO-6k-vXH" firstAttribute="centerX" secondItem="GPL-10-Gg0" secondAttribute="centerX" id="RcH-HJ-foe"/>
+                            <constraint firstItem="KSD-iB-NgZ" firstAttribute="top" secondItem="WcM-JI-7lT" secondAttribute="bottom" constant="56" id="Sg0-3k-WcL"/>
+                            <constraint firstItem="M4E-EN-fbm" firstAttribute="centerY" secondItem="bMJ-XV-8IT" secondAttribute="centerY" id="Sy4-ir-vJV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M4E-EN-fbm" secondAttribute="trailing" constant="60" id="e0n-KW-SwB"/>
+                            <constraint firstItem="KSD-iB-NgZ" firstAttribute="centerX" secondItem="GPL-10-Gg0" secondAttribute="centerX" id="qGk-2x-BZt"/>
+                            <constraint firstItem="bMJ-XV-8IT" firstAttribute="leading" secondItem="GPL-10-Gg0" secondAttribute="leadingMargin" constant="60" id="wFn-VH-T2J"/>
+                            <constraint firstItem="bMJ-XV-8IT" firstAttribute="top" secondItem="16j-5f-TWy" secondAttribute="bottom" constant="300" id="zwN-t1-DCt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="callerLabel" destination="RZO-6k-vXH" id="EFK-yK-1vX"/>
+                        <outlet property="endButton" destination="M4E-EN-fbm" id="4Qw-wm-zjQ"/>
+                        <outlet property="holdButton" destination="bMJ-XV-8IT" id="DFN-SJ-HP0"/>
+                        <outlet property="infoLabel" destination="WcM-JI-7lT" id="Ded-zO-qSG"/>
+                        <outlet property="timeLabel" destination="KSD-iB-NgZ" id="S1a-JO-Ncj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsX-La-Gj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3074" y="105"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ScH-jm-J6M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jaE-E7-1uU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lLE-50-rjM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="K89-Wq-0Zm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beO-qG-Vfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632.79999999999995" y="90.404797601199405"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="500" height="747"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7RE-Hq-fux"/>
+    </inferredMetricsTieBreakers>
 </document>
