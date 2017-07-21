@@ -249,9 +249,7 @@
 }
 
 - (void)provider:(CXProvider *)provider didDeactivateAudioSession:(AVAudioSession *)audioSession {
-    
-    NSLog(@"start audio...");
-    
+
      // Restart any non-call related audio now that the app's audio session has been  de-activated after having its priority restored to normal.
 }
 

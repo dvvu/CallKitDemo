@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - delegate to notify cotroller -> UI
 @protocol CallManagerDelegate <NSObject>
 
 - (void)callDidAnswer;
