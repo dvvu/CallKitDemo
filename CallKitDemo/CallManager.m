@@ -57,6 +57,7 @@
     
     CXCallUpdate* update = [[CXCallUpdate alloc] init];
     update.remoteHandle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:phoneNumber];
+    update.hasVideo = YES;
     
     __weak CallManager* weakSelf = self;
     
@@ -65,7 +66,6 @@
         if (!error) {
             
             weakSelf.uuid = uuid;
-            
         } else {
             
             if (_delegate && [_delegate respondsToSelector:@selector(callDidFail)]) {
@@ -84,6 +84,7 @@
     CXHandle* handle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:phoneNumber];
     CXStartCallAction* startCallAction = [[CXStartCallAction alloc] initWithCallUUID:_uuid handle:handle];
     CXTransaction* transaction = [[CXTransaction alloc] init];
+    [startCallAction setVideo:YES];
     
     [transaction addAction:startCallAction];
     [self requestTransaction:transaction];
@@ -135,12 +136,12 @@
     
     if (!_provider) {
         
-        CXProviderConfiguration* configuration = [[CXProviderConfiguration alloc] initWithLocalizedName:@"CallKit"];
+        CXProviderConfiguration* configuration = [[CXProviderConfiguration alloc] initWithLocalizedName:@"CallKitDemo"];
         configuration.supportsVideo = YES;
         configuration.maximumCallsPerCallGroup = 1;
         configuration.supportedHandleTypes = [NSSet setWithObject:@(CXHandleTypePhoneNumber)];
-        configuration.ringtoneSound = @"Ringtone";
-        
+        configuration.ringtoneSound = @"Ringtone.mp3";
+
         _provider = [[CXProvider alloc] initWithConfiguration:configuration];
         [_provider setDelegate:self queue:nil];
     }
@@ -155,15 +156,16 @@
     //endCall
 }
 
-/// Called when the provider has been fully created and is ready to send actions and receive updates
+// Called when the provider has been fully created and is ready to send actions and receive updates
 - (void)providerDidBegin:(CXProvider *)provider {
+    
 }
 
 // If provider:executeTransaction:error: returned NO, each perform*CallAction method is called sequentially for each action in the transaction
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action {
     
-    //todo: configure audio session
-    //todo: start network call
+    // configure audio session
+    // start network call
     [_provider reportOutgoingCallWithUUID:action.callUUID startedConnectingAtDate:nil];
     [_provider reportOutgoingCallWithUUID:action.callUUID connectedAtDate:nil];
     
@@ -179,8 +181,8 @@
 
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action {
     
-    //todo: configure audio session
-    //todo: answer network call
+    // configure audio session
+    // answer network call
     if (_delegate && [_delegate respondsToSelector:@selector(callDidAnswer)]) {
         
         [_delegate callDidAnswer];
@@ -192,8 +194,9 @@
 }
 
 - (void)provider:(CXProvider *)provider performEndCallAction:(CXEndCallAction *)action {
-    //todo: stop audio
-    //todo: end network call
+    
+    // stop audio
+    // end network call
     _uuid = nil;
     
     if (_delegate && [_delegate respondsToSelector:@selector(callDidEnd)]) {
@@ -231,14 +234,15 @@
 - (void)provider:(CXProvider *)provider performPlayDTMFCallAction:(CXPlayDTMFCallAction *)action {
 }
 
-/// Called when an action was not performed in time and has been inherently failed. Depending on the action, this timeout may also force the call to end. An action that has already timed out should not be fulfilled or failed by the provider delegate
+// Called when an action was not performed in time and has been inherently failed. Depending on the action, this timeout may also force the call to end. An action that has already timed out should not be fulfilled or failed by the provider delegate
 - (void)provider:(CXProvider *)provider timedOutPerformingAction:(CXAction *)action {
+    
     // React to the action timeout if necessary, such as showing an error UI.
 }
 
-/// Called when the provider's audio session activation state changes.
+// Called when the provider's audio session activation state changes.
 - (void)provider:(CXProvider *)provider didActivateAudioSession:(AVAudioSession *)audioSession {
-    //todo: start audio
+    
     // Start call audio media, now that the audio session has been activated after having its priority boosted.
     NSLog(@"start audio...");
 
@@ -247,10 +251,8 @@
 - (void)provider:(CXProvider *)provider didDeactivateAudioSession:(AVAudioSession *)audioSession {
     
     NSLog(@"start audio...");
-    /*
-     Restart any non-call related audio now that the app's audio session has been
-     de-activated after having its priority restored to normal.
-     */
+    
+     // Restart any non-call related audio now that the app's audio session has been  de-activated after having its priority restored to normal.
 }
 
 @end
